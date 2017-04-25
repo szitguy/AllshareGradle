@@ -4,7 +4,7 @@ plugins {
 
 def bintrayApiKey = BINTRAY_API_KEY
 def bintrayUser = BINTRAY_USER
-def versionName = '1.0.3'
+def versionName = '1.0.4'
 def group_id = 'cn.itguy'
 def artifact_id = 'allshare-gradle-plugin'
 
