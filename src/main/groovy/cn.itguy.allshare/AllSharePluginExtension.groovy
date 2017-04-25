@@ -10,4 +10,9 @@ class AllSharePluginExtension {
      */
     public String qqAppId;
 
+    /**
+     * 插件扩展参数，微信平台的appId
+     */
+    public String wxAppId;
+
 }
