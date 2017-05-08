@@ -8,7 +8,7 @@ class AllSharePlugin implements Plugin<Project> {
 
     static final String TAG = "AllSharePlugin";
 
-    final String AndroidLibVersion = "1.0.3"
+    final String AndroidLibVersion = "1.0.4"
 
     @Override
     void apply(Project project) {
