@@ -6,13 +6,21 @@ package cn.itguy.allshare
 class AllSharePluginExtension {
 
     /**
-     * 插件扩展参数，qq平台的appId
+     * 插件扩展参数，qq平台的{package, appId}映射
      */
-    public String qqAppId;
+    public Map<String, String> qqAppIdMap;
 
     /**
-     * 插件扩展参数，微信平台的appId
+     * 插件扩展参数，微信平台的{package, appId}映射
      */
-    public String wxAppId;
+    public Map<String, String> wxAppIdMap;
 
+
+    @Override
+    public String toString() {
+        return "AllSharePluginExtension{" +
+                "qqAppIdMap=" + qqAppIdMap +
+                ", wxAppIdMap=" + wxAppIdMap +
+                '}';
+    }
 }
