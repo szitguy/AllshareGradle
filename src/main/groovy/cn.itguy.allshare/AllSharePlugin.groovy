@@ -1,5 +1,6 @@
 package cn.itguy.allshare
 
+import cn.itguy.BuildConfig
 import com.android.build.gradle.AppExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -7,8 +8,6 @@ import org.gradle.api.Project
 class AllSharePlugin implements Plugin<Project> {
 
     static final String TAG = "AllSharePlugin";
-
-    final String ANDROID_LIB_VERSION = "1.0.4"
 
     @Override
     void apply(Project project) {
@@ -20,11 +19,13 @@ class AllSharePlugin implements Plugin<Project> {
         project.extensions.create(TAG, AllSharePluginExtension)
         def extension = project.extensions.findByType(AllSharePluginExtension)
 
-        // 添加jcenter仓库
-        project.repositories.add(project.getRepositories().jcenter())
-        // 添加AllShare Android库依赖
-        project.dependencies.add("compile", "cn.itguy.allshare:allshare:${ANDROID_LIB_VERSION}")
-        println("------ANDROID_LIB_VERSION is ${ANDROID_LIB_VERSION}")
+        // release时添加jcenter仓库
+        if (!BuildConfig.DEBUG) {
+            project.repositories.add(project.getRepositories().jcenter())
+            // 添加AllShare Android库依赖
+            project.dependencies.add("compile", "cn.itguy.allshare:allshare:${BuildConfig.ANDROID_LIB_VERSION}")
+            println("------ANDROID_LIB_VERSION is ${BuildConfig.ANDROID_LIB_VERSION}")
+        }
 
         project.afterEvaluate {
             println("------${extension}")

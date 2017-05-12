@@ -1,17 +1,29 @@
 plugins {
     id "com.jfrog.bintray" version "1.7"
+    id 'de.fuerstenau.buildconfig' version '1.1.8'
 }
+
+apply plugin: 'groovy'
+apply plugin: 'idea'
+apply plugin: 'maven-publish'
+apply plugin: 'maven'
 
 def bintrayApiKey = BINTRAY_API_KEY
 def bintrayUser = BINTRAY_USER
-def versionName = '1.0.6'
 def group_id = 'cn.itguy'
 def artifact_id = 'allshare-gradle-plugin'
+def versionName = '1.0.7'
+//def debug = true
+def debug = false
+def androidLibVersion = '1.0.5'
 
 group group_id
 version versionName
 
-apply plugin: 'groovy'
+buildConfig {
+    buildConfigField 'boolean', 'DEBUG', "${debug}"
+    buildConfigField 'String', 'ANDROID_LIB_VERSION', "${androidLibVersion}"
+}
 
 repositories {
     jcenter()
@@ -44,8 +56,6 @@ bintray {
 
 }
 
-apply plugin: 'maven-publish'
-
 // custom tasks for creating source/javadoc jars
 task sourcesJar(type: Jar, dependsOn: classes) {
     classifier = 'sources'
@@ -76,8 +86,6 @@ publishing {
 }
 
 // ---------- 本地测试时用以下代码 ----------
-
-apply plugin: 'maven'
 
 // 声明发布maven库的task,用gradle执行即可发布到指定url
 uploadArchives {

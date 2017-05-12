@@ -1,5 +1,6 @@
 package cn.itguy.allshare
 
+import cn.itguy.BuildConfig
 import com.android.build.api.transform.DirectoryInput
 import com.android.build.api.transform.Format
 import com.android.build.api.transform.JarInput
@@ -47,11 +48,7 @@ class AllShareTransform extends Transform {
     @Override
     Set<? super QualifiedContent.Scope> getScopes() {
         return Sets.immutableEnumSet(
-//                QualifiedContent.Scope.PROJECT,
-//                QualifiedContent.Scope.PROJECT_LOCAL_DEPS,
-//                QualifiedContent.Scope.SUB_PROJECTS,
-//                QualifiedContent.Scope.SUB_PROJECTS_LOCAL_DEPS,
-                QualifiedContent.Scope.EXTERNAL_LIBRARIES)
+                BuildConfig.DEBUG ? QualifiedContent.Scope.SUB_PROJECTS : QualifiedContent.Scope.EXTERNAL_LIBRARIES)
     }
 
     @Override
@@ -85,6 +82,7 @@ class AllShareTransform extends Transform {
                 // 获得输出文件
                 File dest = transformInvocation.outputProvider.getContentLocation(destName + "_" + hexName, jarInput.contentTypes, jarInput.scopes, Format.JAR);
 
+                // todo why?
                 if (!dest.exists()) {
                     dest.getParentFile().mkdirs()
                     dest.createNewFile()
