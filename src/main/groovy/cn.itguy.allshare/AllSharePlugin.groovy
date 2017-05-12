@@ -1,7 +1,7 @@
 package cn.itguy.allshare
 
-import cn.itguy.BuildConfig
 import com.android.build.gradle.AppExtension
+import com.github.szitguy.BuildConfig
 import org.gradle.api.Action
 import org.gradle.api.Plugin
 import org.gradle.api.Project

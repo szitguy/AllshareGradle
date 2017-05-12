@@ -1,6 +1,5 @@
 package cn.itguy.allshare
 
-import cn.itguy.BuildConfig
 import com.android.build.api.transform.DirectoryInput
 import com.android.build.api.transform.Format
 import com.android.build.api.transform.JarInput
@@ -14,6 +13,7 @@ import com.android.build.gradle.BaseExtension
 import com.android.build.gradle.api.ApplicationVariant
 import com.android.build.gradle.internal.pipeline.TransformManager
 import com.android.utils.FileUtils
+import com.github.szitguy.BuildConfig
 import com.google.common.collect.Sets
 import com.tonicsystems.jarjar.Main
 import org.apache.commons.codec.digest.DigestUtils

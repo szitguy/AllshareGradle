@@ -14,7 +14,7 @@ def bintrayApiKey = 'BINTRAY_API_KEY'
 def bintrayUser = 'BINTRAY_USER'
 def group_id = 'com.github.szitguy'
 def artifact_id = 'allshare-gradle-plugin'
-def versionName = '1.0.7-3'
+def versionName = '1.0.7-4'
 //def debug = true
 def debug = false
 def androidLibVersion = '1.0.5'
@@ -98,13 +98,13 @@ uploadArchives {
     }
 }
 
-afterEvaluate {
-    jar {
-        from tasks['compileBuildConfig'].outputs
-    }
-
-//    task buildConfigJar(type: Jar, dependsOn: tasks['compileBuildConfig']) << {
-//        classifier = 'buildConfig'
+//afterEvaluate {
+//    jar {
 //        from tasks['compileBuildConfig'].outputs
 //    }
-}
+//
+////    task buildConfigJar(type: Jar, dependsOn: tasks['compileBuildConfig']) << {
+////        classifier = 'buildConfig'
+////        from tasks['compileBuildConfig'].outputs
+////    }
+//}
