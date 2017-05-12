@@ -8,8 +8,10 @@ apply plugin: 'idea'
 apply plugin: 'maven-publish'
 apply plugin: 'maven'
 
-def bintrayApiKey = BINTRAY_API_KEY
-def bintrayUser = BINTRAY_USER
+//def bintrayApiKey = BINTRAY_API_KEY
+//def bintrayUser = BINTRAY_USER
+def bintrayApiKey = 'BINTRAY_API_KEY'
+def bintrayUser = 'BINTRAY_USER'
 def group_id = 'com.github.szitguy'
 def artifact_id = 'allshare-gradle-plugin'
 def versionName = '1.0.7'
